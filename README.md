@@ -2,6 +2,29 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+## Press Section
+
+Press entries live in `lib/press.ts`. To extract article content from an image (OCR) or URL:
+
+```bash
+npm run extract-press -- public/press/article.jpg
+npm run extract-press -- https://example.com/article
+```
+
+Review the output, edit as needed, then add to the `pressEntries` array in `lib/press.ts`.
+
+## Forms (Formspree)
+
+Both the **Wall of Appreciation** and **Contact Us** forms use Formspree. To enable them:
+
+1. Create form(s) at [formspree.io](https://formspree.io)
+2. Set the notification email to `info@onedonormanylives.com`
+3. Copy `.env.example` to `.env.local` and set:
+   - `NEXT_PUBLIC_FORMSPREE_ENDPOINT` – Wall of Appreciation form
+   - `NEXT_PUBLIC_FORMSPREE_CONTACT_ENDPOINT` – Contact Us form (optional; falls back to the above if not set)
+
+## Getting Started
+
 First, run the development server:
 
 ```bash

@@ -1,0 +1,11 @@
+pvt_id,id,first_name,last_name,city,state,country,message,date,is_featured,source,status
+dummy-1,1,Priya,Kumar,Chennai,Tamil Nadu,India,To give someone a second chance at life.,2025-02-12,true,seed,approved
+dummy-2,2,Rajesh,Mehta,Mumbai,Maharashtra,India,,2025-02-11,false,seed,approved
+dummy-3,3,Anita,Sharma,Bangalore,Karnataka,India,Why not help when I no longer need my organs?,2025-02-10,true,seed,approved
+dummy-4,4,Deepak,Verma,Delhi,Delhi,India,,2025-02-09,false,seed,approved
+dummy-5,5,Meera,Lakshmanan,Hyderabad,Telangana,India,Inspired by a friend who received a transplant.,2025-02-08,true,seed,approved
+dummy-6,6,Suresh,Patel,Kolkata,West Bengal,India,,2025-02-07,false,seed,approved
+dummy-7,7,Lakshmi,Reddy,Chennai,Tamil Nadu,India,One life can save many.,2025-02-06,false,seed,approved
+dummy-8,8,Vikram,Desai,Pune,Maharashtra,India,,2025-02-05,false,seed,approved
+dummy-9,9,Kavitha,Nair,Coimbatore,Tamil Nadu,India,Planning to register with NOTTO soon.,2025-02-04,true,seed,approved
+dummy-10,10,Arun,Bhatt,Ahmedabad,Gujarat,India,,2025-02-03,false,seed,approved
