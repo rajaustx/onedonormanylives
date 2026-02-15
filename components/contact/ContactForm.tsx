@@ -29,6 +29,7 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  const formRef = useRef<HTMLFormElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
@@ -92,21 +93,15 @@ export function ContactForm() {
     const CONTACT_ENDPOINT =
       process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_ENDPOINT || "https://formspree.io/f/xjgewope";
 
-    const formData = new FormData();
-    formData.append("intent", inquiryType);
-    formData.append("name", trimmedName);
-    formData.append("email", trimmedEmail);
-    formData.append("message", trimmedMessage);
-    formData.append("_replyto", trimmedEmail);
-    if (files.length > 0) {
-      files.forEach((file) => formData.append("file", file));
-    }
+    const formData = new FormData(formRef.current!);
 
     try {
       const res = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },
         body: formData,
+        headers: {
+          Accept: "application/json",
+        },
       });
 
       if (!res.ok) {
@@ -139,7 +134,8 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+      <input type="hidden" name="_replyto" value={email} />
       {errors.submit && (
         <div
           className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-800/40 dark:bg-amber-950/30 dark:text-amber-200"
@@ -155,6 +151,7 @@ export function ContactForm() {
         </label>
         <select
           id="contact-inquiry"
+          name="intent"
           value={inquiryType}
           onChange={(e) => setInquiryType(e.target.value)}
           className="mt-1.5 w-full rounded-lg border border-stone-200/60 bg-white px-4 py-2.5 text-stone-800 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 dark:border-stone-700/60 dark:bg-stone-900/50 dark:text-stone-200"
@@ -176,6 +173,7 @@ export function ContactForm() {
           <input
             ref={nameRef}
             id="contact-name"
+            name="name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -196,6 +194,7 @@ export function ContactForm() {
           <input
             ref={emailRef}
             id="contact-email"
+            name="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -218,6 +217,7 @@ export function ContactForm() {
         <textarea
           ref={messageRef}
           id="contact-message"
+          name="message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={4}
@@ -249,6 +249,7 @@ export function ContactForm() {
         </p>
         <input
           id="contact-files"
+          name="file"
           type="file"
           multiple
           accept=".pdf,.jpg,.jpeg,.png,.gif,.webp,application/pdf,image/jpeg,image/png,image/gif,image/webp"
