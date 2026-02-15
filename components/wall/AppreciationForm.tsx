@@ -159,11 +159,13 @@ export function AppreciationForm({ variant = "standalone" }: AppreciationFormPro
         body: JSON.stringify(formData),
       });
 
-      if (!res.ok) {
-        throw new Error("Something went wrong. Please try again.");
+      if (res.ok) {
+        setIsSuccess(true);
+      } else {
+        setErrors({
+          submit: "Something went wrong. Please try again, or email us at info@onedonormanylives.com.",
+        });
       }
-
-      setIsSuccess(true);
     } catch {
       setErrors({
         submit: "Something went wrong. Please try again, or email us at info@onedonormanylives.com.",
