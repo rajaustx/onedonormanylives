@@ -20,8 +20,8 @@ Both the **Wall of Appreciation** and **Contact Us** forms use Formspree. To ena
 1. Create form(s) at [formspree.io](https://formspree.io)
 2. Set the notification email to `info@onedonormanylives.com`
 3. Copy `.env.example` to `.env.local` and set:
-   - `NEXT_PUBLIC_FORMSPREE_ENDPOINT` – Wall of Appreciation form
-   - `NEXT_PUBLIC_FORMSPREE_CONTACT_ENDPOINT` – Contact Us form (optional; falls back to the above if not set)
+   - `NEXT_PUBLIC_FORMSPREE_WALL_ENDPOINT` – Wall of Appreciation form (optional; falls back to hardcoded)
+   - `NEXT_PUBLIC_FORMSPREE_CONTACT_ENDPOINT` – Contact Us form (optional; falls back to hardcoded)
 
 ## Getting Started
 

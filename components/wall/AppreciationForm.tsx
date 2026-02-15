@@ -149,11 +149,11 @@ export function AppreciationForm({ variant = "standalone" }: AppreciationFormPro
       _replyto: "info@onedonormanylives.com",
     };
 
-    const endpoint =
-      process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/placeholder";
+    const WALL_ENDPOINT =
+      process.env.NEXT_PUBLIC_FORMSPREE_WALL_ENDPOINT || "https://formspree.io/f/mykdwvnv";
 
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch(WALL_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
