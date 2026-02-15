@@ -9,7 +9,7 @@ export interface RegistryLink {
 export const PLEDGE_REGISTRIES: RegistryLink[] = [
   {
     country: "India",
-    url: "https://notto.abdm.gov.in/",
+    url: "https://www.notto.mohfw.gov.in/",
     label: "NOTTO — National Organ and Tissue Transplant Organisation",
   },
   {

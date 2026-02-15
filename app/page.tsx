@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main className="pb-24 pt-20">
         <Hero />
         <IndiaRealitySection />
         <StatsSection />

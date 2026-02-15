@@ -23,7 +23,7 @@ export function MythBustingSection() {
     <section className="py-24">
       <div className="mx-auto max-w-6xl px-6">
         <ScrollReveal variants={scrollReveal} className="mb-16 text-center">
-          <h2 className="text-2xl font-medium text-stone-800 dark:text-stone-200 sm:text-3xl">
+          <h2 className="font-serif text-2xl font-medium text-stone-800 dark:text-stone-200 sm:text-3xl">
             Common myths. Honest answers.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-stone-600 dark:text-stone-400">

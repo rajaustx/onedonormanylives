@@ -1,6 +1,6 @@
 "use client";
 
-const NOTTO_URL = "https://notto.abdm.gov.in/";
+const NOTTO_URL = "https://www.notto.mohfw.gov.in/";
 
 const STEPS = [
   "Visit the NOTTO website (link below).",

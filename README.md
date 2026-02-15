@@ -41,7 +41,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Typography
+
+The site uses a serif + sans mix for hierarchy:
+
+- **DM Serif Display** (`font-serif`): Page titles, section headings (h2), hero titles, modal headings, stat numbers, blog titles, press card titles, header logo.
+- **Source Sans 3** (`font-sans`): Body text, labels, buttons, nav, form inputs, footer.
+
+Use `font-serif` for headings and impactful numbers; `font-sans` for body and UI.
 
 ## Learn More
 
