@@ -90,10 +90,8 @@ export function ContactForm() {
     setErrors({});
 
     const dateStr = new Date().toISOString().split("T")[0];
-    const endpoint =
-      process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_ENDPOINT ||
-      process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ||
-      "https://formspree.io/f/placeholder";
+    const CONTACT_ENDPOINT =
+      process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_ENDPOINT || "https://formspree.io/f/xjgewope";
 
     const fd = new FormData();
     fd.append("inquiry_type", inquiryType);
@@ -106,7 +104,7 @@ export function ContactForm() {
     files.forEach((file) => fd.append("file", file));
 
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
         body: fd,
       });

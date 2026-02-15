@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { COUNTRIES } from "@/lib/countries";
 
 const FORMSPREE_PLEDGE_ENDPOINT = "https://formspree.io/f/mlgwbpyr";
@@ -40,6 +40,32 @@ export function PledgeForm() {
   const cityRef = useRef<HTMLInputElement>(null);
 
   const isIndia = country === "India";
+
+  function handleCloseSuccessModal() {
+    setFirstName("");
+    setLastName("");
+    setCity("");
+    setState("");
+    setCountry("India");
+    setMessage("");
+    setConsent(false);
+    setCompany("");
+    setErrors({});
+    setIsSuccess(false);
+  }
+
+  useEffect(() => {
+    if (!isSuccess) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleCloseSuccessModal();
+    };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isSuccess]);
 
   function validate(): boolean {
     const next: FormErrors = {};
@@ -167,24 +193,49 @@ export function PledgeForm() {
     }
   }
 
-  if (isSuccess) {
-    return (
-      <div className="rounded-xl border border-stone-200/60 bg-amber-50/50 px-5 py-8 text-center dark:border-stone-700/40 dark:bg-amber-950/20">
-        <p className="font-serif text-lg text-stone-800 dark:text-stone-200">
-          Thank you. Your pledge has been received.
-        </p>
-        <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
-          Submissions are reviewed before appearing on the wall.
-        </p>
-      </div>
-    );
-  }
-
   const inputClass =
     "w-full rounded-md border border-stone-200/60 bg-white px-3 py-2 text-sm text-stone-800 placeholder-stone-400 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500/20 dark:border-stone-700/60 dark:bg-stone-900/50 dark:text-stone-200 dark:placeholder-stone-500";
   const labelClass = "text-xs font-medium text-stone-700 dark:text-stone-300";
 
   return (
+    <>
+      {isSuccess && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="pledge-success-heading"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        >
+          <div
+            className="absolute inset-0 bg-stone-900/50 backdrop-blur-sm"
+            aria-hidden="true"
+            onClick={handleCloseSuccessModal}
+          />
+          <div
+            className="relative z-10 w-full max-w-md rounded-2xl border border-stone-200/60 bg-white p-6 shadow-xl dark:border-stone-700/40 dark:bg-stone-900"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={handleCloseSuccessModal}
+              className="absolute right-4 top-4 rounded-lg p-2 text-stone-400 hover:bg-stone-100 hover:text-stone-600 dark:hover:bg-stone-800 dark:hover:text-stone-300"
+              aria-label="Close"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="rounded-xl border border-amber-200/60 bg-amber-50/50 px-5 py-6 pr-12 dark:border-amber-800/40 dark:bg-amber-950/20">
+              <h2 id="pledge-success-heading" className="font-serif text-lg font-medium text-stone-800 dark:text-stone-200">
+                Thank you. Your pledge has been received.
+              </h2>
+              <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
+                Submissions are reviewed before appearing on the wall.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     <form onSubmit={handleSubmit} className="space-y-4">
       {/* Honeypot - hidden from users */}
       <div className="absolute -left-[9999px] top-0" aria-hidden="true">
@@ -394,5 +445,6 @@ export function PledgeForm() {
         )}
       </button>
     </form>
+    </>
   );
 }
