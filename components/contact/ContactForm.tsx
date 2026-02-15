@@ -90,21 +90,27 @@ export function ContactForm() {
     setIsSubmitting(true);
     setErrors({});
 
-    const CONTACT_ENDPOINT =
-      process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_ENDPOINT || "https://formspree.io/f/xjgewope";
+    const FORMSPREE_ENDPOINT =
+      process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_ENDPOINT ||
+      "https://formspree.io/f/xjgewope";
 
-    const formData = new FormData(formRef.current!);
+    const formData = new FormData();
+    formData.append("purpose", inquiryType);
+    formData.append("name", trimmedName);
+    formData.append("email", trimmedEmail);
+    formData.append("message", trimmedMessage);
+    formData.append("_replyto", trimmedEmail);
+    files.forEach((file) => formData.append("attachment", file));
 
     try {
-      const res = await fetch(CONTACT_ENDPOINT, {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { Accept: "application/json" },
       });
 
-      if (!res.ok) {
+      const isSuccessResponse = res.ok || res.status === 302;
+      if (!isSuccessResponse) {
         throw new Error("Something went wrong. Please try again.");
       }
 
@@ -135,7 +141,6 @@ export function ContactForm() {
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-      <input type="hidden" name="_replyto" value={email} />
       {errors.submit && (
         <div
           className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-800/40 dark:bg-amber-950/30 dark:text-amber-200"
