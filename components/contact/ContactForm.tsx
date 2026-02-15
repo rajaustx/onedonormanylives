@@ -8,14 +8,10 @@ const INQUIRY_OPTIONS = [
   { value: "other", label: "Other" },
 ] as const;
 
-const MAX_FILE_SIZE_MB = 10;
-const MAX_FILE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
-
 interface FormErrors {
   name?: string;
   email?: string;
   message?: string;
-  files?: string;
   submit?: string;
 }
 
@@ -24,7 +20,6 @@ export function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [files, setFiles] = useState<File[]>([]);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -60,18 +55,12 @@ export function ContactForm() {
       next.message = "Message must be 2000 characters or less.";
     }
 
-    const oversized = files.find((f) => f.size > MAX_FILE_BYTES);
-    if (oversized) {
-      next.files = `Files must be under ${MAX_FILE_SIZE_MB} MB each. "${oversized.name}" is too large.`;
-    }
-
     setErrors(next);
 
     if (Object.keys(next).length > 0) {
       if (next.name) nameRef.current?.focus();
       else if (next.email) emailRef.current?.focus();
       else if (next.message) messageRef.current?.focus();
-      else if (next.files) document.getElementById("contact-files")?.focus();
       return false;
     }
     return true;
@@ -100,7 +89,6 @@ export function ContactForm() {
     formData.append("email", trimmedEmail);
     formData.append("message", trimmedMessage);
     formData.append("_replyto", trimmedEmail);
-    files.forEach((file) => formData.append("attachment", file));
 
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -117,7 +105,6 @@ export function ContactForm() {
       setName("");
       setEmail("");
       setMessage("");
-      setFiles([]);
       setInquiryType("story");
       setIsSuccess(true);
     } catch {
@@ -243,33 +230,6 @@ export function ContactForm() {
             {message.trim().length}/2000
           </span>
         </div>
-      </div>
-
-      <div>
-        <label htmlFor="contact-files" className="block text-sm font-medium text-stone-700 dark:text-stone-300">
-          Attachments
-        </label>
-        <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
-          Optional. PDFs, images (JPG, PNG, GIF, WebP). Max 10 MB per file.
-        </p>
-        <input
-          id="contact-files"
-          name="file"
-          type="file"
-          multiple
-          accept=".pdf,.jpg,.jpeg,.png,.gif,.webp,application/pdf,image/jpeg,image/png,image/gif,image/webp"
-          onChange={(e) => setFiles(Array.from(e.target.files ?? []))}
-          className="mt-1.5 w-full rounded-lg border border-stone-200/60 bg-white px-4 py-2.5 text-sm text-stone-600 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-100 file:px-4 file:py-2 file:text-sm file:font-medium file:text-amber-800 file:hover:bg-amber-200 dark:border-stone-700/60 dark:bg-stone-900/50 dark:text-stone-400 dark:file:bg-amber-900/50 dark:file:text-amber-200 dark:file:hover:bg-amber-800/50"
-          disabled={isSubmitting}
-        />
-        {files.length > 0 && (
-          <p className="mt-1.5 text-sm text-stone-500 dark:text-stone-400">
-            {files.length} file{files.length !== 1 ? "s" : ""} selected
-          </p>
-        )}
-        {errors.files && (
-          <p className="mt-1.5 text-sm text-amber-700 dark:text-amber-400">{errors.files}</p>
-        )}
       </div>
 
       <button
