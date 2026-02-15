@@ -89,30 +89,35 @@ export function ContactForm() {
     setIsSubmitting(true);
     setErrors({});
 
-    const dateStr = new Date().toISOString().split("T")[0];
     const CONTACT_ENDPOINT =
       process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_ENDPOINT || "https://formspree.io/f/xjgewope";
 
-    const fd = new FormData();
-    fd.append("inquiry_type", inquiryType);
-    fd.append("name", trimmedName);
-    fd.append("email", trimmedEmail);
-    fd.append("message", trimmedMessage);
-    fd.append("source", "WEB");
-    fd.append("date", dateStr);
-    fd.append("_replyto", trimmedEmail);
-    files.forEach((file) => fd.append("file", file));
+    const formData = new FormData();
+    formData.append("intent", inquiryType);
+    formData.append("name", trimmedName);
+    formData.append("email", trimmedEmail);
+    formData.append("message", trimmedMessage);
+    formData.append("_replyto", trimmedEmail);
+    if (files.length > 0) {
+      files.forEach((file) => formData.append("file", file));
+    }
 
     try {
       const res = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
-        body: fd,
+        headers: { Accept: "application/json" },
+        body: formData,
       });
 
       if (!res.ok) {
         throw new Error("Something went wrong. Please try again.");
       }
 
+      setName("");
+      setEmail("");
+      setMessage("");
+      setFiles([]);
+      setInquiryType("story");
       setIsSuccess(true);
     } catch {
       setErrors({
