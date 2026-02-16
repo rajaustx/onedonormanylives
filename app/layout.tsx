@@ -16,13 +16,30 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://onedonormanylives.com"),
   title: "One Donor Many Lives | Anonymous Kidney Donation",
   description:
     "Anonymous non-directed kidney donation is when someone gives a kidney to a stranger. Learn about this act of profound generosity and how one donor can start a chain of hope.",
   openGraph: {
-    title: "One Donor Many Lives | Anonymous Kidney Donation",
-    description:
-      "Anonymous non-directed kidney donation is when someone gives a kidney to a stranger. Learn about this act of profound generosity.",
+    title: "One Donor Many Lives",
+    description: "One act of generosity. A chain of hope.",
+    url: "https://onedonormanylives.com",
+    siteName: "One Donor Many Lives",
+    images: [
+      {
+        url: "https://onedonormanylives.com/tree-of-life-logo.webp",
+        width: 1200,
+        height: 1200,
+        alt: "One Donor Many Lives logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://onedonormanylives.com/tree-of-life-logo.webp"],
+  },
+  icons: {
+    icon: "/tree-of-life-logo.webp",
   },
 };
 
