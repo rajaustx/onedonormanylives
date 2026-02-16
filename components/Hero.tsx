@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
+import { useContactModal } from "@/components/contact/ContactModalContext";
 
 const textVariants = {
   hidden: { opacity: 0, x: -24 },
@@ -25,6 +25,7 @@ const imageVariants = {
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
+  const { openContactModal } = useContactModal();
 
   const textMotion = reduceMotion
     ? { initial: false, animate: { opacity: 1, x: 0 } }
@@ -51,24 +52,36 @@ export function Hero() {
                 </span>
               </h1>
               <p className="max-w-xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-                It&apos;s an act of profound generosity that starts a chain of hope.
-                That&apos;s exactly what this one doctor did.
+                A single anonymous kidney donation sparked a chain of hope.
               </p>
-              <h3 className="max-w-xl text-sm font-medium leading-relaxed text-stone-600 dark:text-stone-400 sm:text-base">
-                Anonymous Non-Directed kidney Donation (NDD) = a healthy person voluntarily
-                donates a kidney to a stranger, without naming a recipient. It&apos;s legal,
-                regulated altruistic donation with neither payment, nor coercion.
-              </h3>
+              <p className="max-w-xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
+                Now we&apos;re inviting the world to continue it.
+              </p>
+              <p className="max-w-xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
+                This movement begins now.
+              </p>
+              <p className="max-w-xl text-sm leading-relaxed text-stone-600 dark:text-stone-400 sm:text-base">
+                Most organ donations happen after death. Dr. Thankam chose to donate while living — an extraordinary act that&apos;s inspiring thousands more people to pledge after life.
+              </p>
               <div className="hidden flex-col items-center gap-4 lg:flex">
-                <AnimatedButton href="/wall" variant="primary">
-                  Wall of Appreciation
-                </AnimatedButton>
-                <Link
-                  href="/press"
+                <div className="flex flex-col items-center gap-1">
+                  <AnimatedButton href="/pledge" variant="primary">
+                    Join the movement
+                  </AnimatedButton>
+                  <p className="text-sm text-stone-600 dark:text-stone-400">
+                    Pledge to be an organ donor
+                  </p>
+                  <p className="text-xs text-stone-500 dark:text-stone-500">
+                    Part of a growing nationwide donor movement
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={openContactModal}
                   className="text-amber-700 underline-offset-2 hover:underline dark:text-amber-400"
                 >
-                  Press
-                </Link>
+                  Add your message of gratitude
+                </button>
               </div>
             </motion.div>
           </div>
@@ -82,7 +95,7 @@ export function Hero() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/hero/meena_postsurgery.png"
-                alt="Meena after surgery, representing hope and recovery from anonymous kidney donation"
+                alt="Dr. Thankam Subramonian after surgery, first anonymous kidney donor in Karnataka"
                 width={340}
                 height={408}
                 className="h-full w-full object-cover object-top"
@@ -90,37 +103,39 @@ export function Hero() {
                 decoding="async"
               />
             </div>
-            <p className="mt-3 max-w-[320px] text-center text-xs italic leading-relaxed text-stone-600 sm:max-w-[380px] dark:text-stone-400 lg:max-w-[360px]">
-              Likely the first NDD (anonymous non-directed kidney donor) in Karnataka—and
-              hoping to be the first of many yet to come.
-            </p>
             <div className="mt-3 w-full max-w-[320px] text-center sm:max-w-[380px] lg:max-w-[360px]">
               <p className="font-serif text-lg font-medium text-stone-800 dark:text-stone-200">
                 Dr. Thankam Subramonian
               </p>
               <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
-                MD, DGO, DNB, MRCOG
-              </p>
-              <p className="mt-0.5 text-sm text-stone-600 dark:text-stone-400">
-                Consultant – Fetal Medicine
+                First anonymous kidney donor in Karnataka
               </p>
               <p className="mt-1 text-xs text-stone-500 dark:text-stone-500">
-                Manipal Hospital, Airport Road, Bangalore
+                Her living donation sparked a movement that continues to grow.
               </p>
             </div>
           </motion.div>
 
           {/* CTA below hero image on mobile only */}
           <div className="flex flex-col items-center gap-4 lg:hidden">
-            <AnimatedButton href="/wall" variant="primary">
-              Wall of Appreciation
-            </AnimatedButton>
-            <Link
-              href="/press"
+            <div className="flex flex-col items-center gap-1">
+              <AnimatedButton href="/pledge" variant="primary">
+                Join the movement
+              </AnimatedButton>
+              <p className="text-sm text-stone-600 dark:text-stone-400">
+                Pledge to be an organ donor
+              </p>
+              <p className="text-xs text-stone-500 dark:text-stone-500">
+                Part of a growing nationwide donor movement
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={openContactModal}
               className="text-amber-700 underline-offset-2 hover:underline dark:text-amber-400"
             >
-              Press
-            </Link>
+              Add your message of gratitude
+            </button>
           </div>
         </div>
 

@@ -24,19 +24,25 @@ export function PressPageClient({ entries }: PressPageClientProps) {
 
           {entries.length > 0 && (
             <nav
-              className="mt-6 flex flex-wrap gap-x-4 gap-y-1 border-t border-stone-200/60 pt-6 dark:border-stone-700/60"
+              className="mt-8 flex flex-col gap-3 border-t border-stone-200/60 pt-6 dark:border-stone-700/60"
               aria-label="Jump to article"
             >
-              <span className="sr-only">In this page:</span>
-              {entries.map((entry) => (
-                <a
-                  key={entry.id}
-                  href={`#${entry.id}`}
-                  className="text-sm text-stone-500 underline-offset-2 hover:text-amber-700 hover:underline dark:text-stone-400 dark:hover:text-amber-400"
-                >
-                  {entry.publication}
-                </a>
-              ))}
+              <span className="font-serif text-sm font-medium uppercase tracking-wide text-stone-500 dark:text-stone-400">
+                In this page
+              </span>
+              <div className="flex flex-wrap gap-x-5 gap-y-2">
+                {[...entries]
+                  .sort((a, b) => a.publication.localeCompare(b.publication))
+                  .map((entry) => (
+                  <a
+                    key={entry.id}
+                    href={`#${entry.id}`}
+                    className="text-base font-medium text-stone-700 underline-offset-4 hover:text-amber-700 hover:underline dark:text-stone-300 dark:hover:text-amber-400"
+                  >
+                    {entry.publication}
+                  </a>
+                ))}
+              </div>
             </nav>
           )}
         </div>

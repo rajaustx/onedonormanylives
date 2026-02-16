@@ -90,6 +90,49 @@ Dr Thankam S, now 50 years old, wants to spread the message about donating a kid
 Her donation was not an isolated act of altruism—she has also served with Doctors Without Borders.`,
   },
   {
+    id: "rajasthan-patrika-2026",
+    publication: "Rajasthan Patrika",
+    headline:
+      "Victory of Humanity: When the hospital committee refused approval, she knocked on the High Court's door. Struggle since 2016, approval granted in 2025",
+    date: "2026-02-16",
+    image: "/press/article-in-rajasthan-patrika.png",
+    excerpt:
+      "Doctor fought the system and donated her kidney to a stranger. A Bengaluru doctor chose to donate her kidney to an unknown woman after years of legal and administrative procedures, setting an extraordinary example of courage and kindness.",
+    fullText: `Victory of Humanity: When the hospital committee refused approval, she knocked on the High Court's door. Struggle since 2016, approval granted in 2025
+
+Doctor fought the system and donated her kidney to a stranger
+
+Patrika News Network
+
+Bengaluru: Humanity is sometimes tied not by blood relations, but by decisions made from the heart. A Bengaluru doctor, Dr. Subramanian (58), proved this. While most people donate organs to relatives, she chose to donate her kidney to a stranger. For this, she had to battle the system and even approach the High Court.
+
+After years of legal and administrative procedures, she finally won approval and donated her kidney to an unknown woman, setting an example of humanity. According to her, this decision was not taken under pressure, but purely out of personal will and compassion. This is not just a medical procedure, but an extraordinary example of courage and kindness to save another life.
+
+She stood firm even after retirement
+
+In 2016, she began the process of donating her kidney as a living donor. Seeing the risk involved in a non-relative donation, the hospital committee conducted extensive questioning of her and her family. Despite this, the committee refused approval. It was discouraging, but she did not give up.
+
+Years-long struggle, but hope never faded
+
+Dr. Subramanian works as a fetal medicine consultant at a private hospital in the city. She decided to donate after attending a lecture about organ donation in 2014. However, fulfilling that resolve was not easy. Family concerns, administrative processes, and legal hurdles repeatedly blocked her path. Still, she never changed her decision.
+
+Court calls it a rare and inspiring case
+
+She approached the Karnataka High Court. Justice Suraj Govindaraj's bench clarified on 25 November 2025 that if a person wants to donate voluntarily without any financial benefit, their wish should be respected.
+
+Emotional meeting became inspiration
+
+After the transplant, the recipient's family met Dr. Subramanian and expressed deep gratitude. It was an emotional moment for both families. Despite having no personal relationship, the meeting became a symbol of humanity's deep bond.
+
+Message to society about organ donation
+
+Dr. Subramanian said this step would inspire people to donate organs. She noted that organ donation rates in India are still low and more people should come forward. A healthy person can give someone else a second chance at life through donation.
+
+A stranger receives a new life
+
+After court approval, she donated her kidney to a nearly 50-year-old unknown woman, giving her a new life. The transplant was successful. Both are healthy after surgery. The court said such acts of compassion deserve full respect and called it a rare and inspiring case.`,
+  },
+  {
     id: "dhinathanthi-2026",
     publication: "Dhinathanthi (Tamil)",
     headline: "A woman doctor donates a kidney to a 56-year-old woman in need",

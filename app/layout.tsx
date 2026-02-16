@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, Source_Sans_3 } from "next/font/google";
+import { ContactModalProvider } from "@/components/contact/ContactModalContext";
 import "./globals.css";
 
 const dmSerif = DM_Serif_Display({
@@ -33,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSerif.variable} ${sourceSans.variable}`}>
       <body className="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100">
-        {children}
+        <ContactModalProvider>{children}</ContactModalProvider>
       </body>
     </html>
   );

@@ -28,7 +28,7 @@ export function StickyCTA({ text, ctaLabel, ctaHref }: StickyCTAProps) {
         <AnimatedButton
           href={ctaHref}
           variant="primary"
-          className="px-4 py-2.5 text-sm sm:px-8 sm:py-4 sm:text-base bg-amber-700 hover:bg-amber-800 sm:bg-amber-600 sm:hover:bg-amber-700"
+          className="whitespace-nowrap px-3 py-2 text-xs sm:px-6 sm:py-3 sm:text-sm bg-amber-700 hover:bg-amber-800 sm:bg-amber-600 sm:hover:bg-amber-700"
         >
           {ctaLabel}
         </AnimatedButton>

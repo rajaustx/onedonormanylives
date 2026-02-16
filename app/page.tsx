@@ -1,9 +1,10 @@
 import { Header } from "@/components/home/Header";
 import { Hero } from "@/components/Hero";
-import { IndiaRealitySection } from "@/components/home/IndiaRealitySection";
-import { StatsSection } from "@/components/home/StatsSection";
-import { WorldwideSection } from "@/components/home/WorldwideSection";
+import { OneDonorStorySection } from "@/components/home/OneDonorStorySection";
+import { TheGapSection } from "@/components/home/TheGapSection";
+import { WhyPledgeSection } from "@/components/home/WhyPledgeSection";
 import { MythBustingSection } from "@/components/home/MythBustingSection";
+import { JoinMovementSection } from "@/components/home/JoinMovementSection";
 import { Footer } from "@/components/home/Footer";
 import { StickyCTA } from "@/components/ui/StickyCTA";
 
@@ -13,14 +14,15 @@ export default function Home() {
       <Header />
       <main className="pb-24 pt-20">
         <Hero />
-        <IndiaRealitySection />
-        <StatsSection />
-        <WorldwideSection />
+        <OneDonorStorySection />
+        <TheGapSection />
+        <WhyPledgeSection />
         <MythBustingSection />
+        <JoinMovementSection />
         <Footer />
       </main>
       <StickyCTA
-        text="Ready to learn more about anonymous kidney donation?"
+        text="Appreciation from around the world"
         ctaLabel="Wall of Appreciation"
         ctaHref="/wall"
       />
