@@ -9,13 +9,19 @@ interface PledgeCounterProps {
 }
 
 export function PledgeCounter({ count, align = "right" }: PledgeCounterProps) {
-  const [displayCount, setDisplayCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [displayCount, setDisplayCount] = useState(count);
+  const [hasAnimated, setHasAnimated] = useState(count <= 10);
 
   useEffect(() => {
     if (count === 0 || hasAnimated) return;
     setHasAnimated(true);
 
+    if (count <= 10) {
+      setDisplayCount(count);
+      return;
+    }
+
+    setDisplayCount(0);
     const duration = 800;
     const steps = 20;
     const stepDuration = duration / steps;
