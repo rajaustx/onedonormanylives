@@ -7,45 +7,99 @@ import { scrollRevealLeft, scrollRevealRight } from "@/lib/animation";
 
 const timelineEvents = [
   {
-    year: "2014",
-    title: "The spark",
+    year: "2014 — May",
+    title: "The Spark",
+    subheader: "Where the journey began",
     summary:
-      "Dr. Thankam heard a speech about organ donation at her hospital in Bangalore. She signed up for posthumous donation—then discovered that few pledges ever become reality. She decided she wanted action, not chance.",
+      "In May 2014, Dr. Thankam heard a talk on organ donation at Manipal Hospital, Bangalore. Although many pledged that day, she learned that only a small fraction of pledges translate into actual donations. That gap stayed with her.",
     side: "left" as const,
   },
   {
-    year: "2016",
-    title: "The decision",
+    year: "2016 — December",
+    title: "A Decision to Act",
+    subheader: "Choosing to be in charge",
     summary:
-      "She made a decision that had never happened in Karnataka: donate a kidney while alive. Not to a friend. Not to a relative. To a stranger. Doctors were surprised. She was declared fit to donate.",
+      "By December 2016, she decided not to leave it to circumstance. She chose to donate a kidney while alive, anonymously, to whoever needed it most.",
     side: "right" as const,
+  },
+  {
+    year: "2017 — Jan–Feb",
+    title: "Medical Workup",
+    subheader: "Fit to donate",
+    summary:
+      "In early 2017, she completed the required scans and blood tests. The evaluation process felt routine, and the workup confirmed she was medically fit. The donor evaluation was provided at no cost.",
+    side: "left" as const,
   },
   {
     year: "2017–2023",
-    title: "Six years of \"no\"",
+    title: "Years of Waiting",
+    subheader: "A system not built for this",
     summary:
-      "The medical system was not built for a donor without a recipient. Committees refused. Meetings passed. Applications stalled. Her family worried. No one wanted to be the first to say yes.",
-    side: "left" as const,
-  },
-  {
-    year: "2023",
-    title: "A boy she never met",
-    summary:
-      "A 24-year-old orphan was matched as a recipient. The committee rejected the transplant—they could not prove a relationship. Months later, she learned the boy had died. She carried that news heavily. And refused to stop.",
+      "Approval required a hospital authorization committee. Because anonymous living donation was unfamiliar locally, progress stalled. Her doctors advocated repeatedly, but the case kept getting deferred.",
     side: "right" as const,
   },
   {
-    year: "2025",
-    title: "The High Court became her ally",
+    year: "2023 — Jan–Mar",
+    title: "Police Verification and a Match",
+    subheader: "A recipient identified",
     summary:
-      "She chose the final path: legal action. Hearings followed. Documents were reviewed. In December 2025, the High Court of Karnataka ruled in her favor. The committee was ordered to approve the donation.",
+      "In early 2023, she completed police verification, interviews, and extensive documentation. A compatible recipient was identified: a 24-year-old orphan boy on the waiting list.",
     side: "left" as const,
   },
   {
-    year: "Feb 10, 2026",
-    title: "The surgery",
+    year: "2023 — Committee Decision",
+    title: "A Painful No",
+    subheader: "\"No relationship established\"",
     summary:
-      "The authorization committee finally said yes. Twelve years after the spark, the donation happened. One act. One chain. Many lives.",
+      "Despite sympathetic listening, the committee rejected the request, citing inability to establish a relationship between donor and recipient. The irony: the donation was anonymous by intent.",
+    side: "right" as const,
+  },
+  {
+    year: "2024 — Aftermath",
+    title: "A Quiet Year",
+    subheader: "Hope dimmed, time passing",
+    summary:
+      "For nearly a year, she stepped back. The journey had already spanned years, and she was getting older. Then she learned the earlier matched recipient had passed away.",
+    side: "left" as const,
+  },
+  {
+    year: "2025 — January",
+    title: "Legal Recourse",
+    subheader: "A new path forward",
+    summary:
+      "In January 2025, she returned to her transplant team determined to try again. She was advised that the remaining path was legal, and she chose to pursue it.",
+    side: "right" as const,
+  },
+  {
+    year: "2025 — Mar–Jun",
+    title: "Case Preparation",
+    subheader: "Building the petition",
+    summary:
+      "She shared her full documentation with counsel before leaving for a Doctors Without Borders mission. By June 2025, the legal review concluded there was a strong case to be made.",
+    side: "left" as const,
+  },
+  {
+    year: "2025 — December",
+    title: "High Court Ruling",
+    subheader: "A precedent-setting win",
+    summary:
+      "In December 2025, the Karnataka High Court ruled in her favor and directed the authorization committee to grant permission. The order was time-bound and required rapid recipient matching.",
+    side: "right" as const,
+  },
+  {
+    year: "2026 — February 2",
+    title: "Approval at Last",
+    subheader: "Permission granted",
+    summary:
+      "The authorization committee met again on February 2, 2026. Backed by the court order, her case was approved, clearing the way for surgery within days.",
+    side: "left" as const,
+  },
+  {
+    year: "2026 — February 10",
+    title: "The Donation",
+    subheader: "A journey fulfilled",
+    summary:
+      "On February 10, 2026, the surgery took place. After nearly a decade of persistence, Dr. Thankam successfully completed an anonymous living kidney donation.",
     side: "right" as const,
   },
 ];
@@ -117,6 +171,11 @@ function TimelineNode({
       <h3 className="mt-2 font-serif text-xl font-medium text-stone-900 dark:text-stone-100">
         {event.title}
       </h3>
+      {"subheader" in event && event.subheader && (
+        <p className="mt-1 text-sm font-medium text-stone-500 dark:text-stone-400">
+          {event.subheader}
+        </p>
+      )}
       <p className="mt-3 text-stone-600 dark:text-stone-400">{event.summary}</p>
     </div>
   );

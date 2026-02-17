@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import { useContactModal } from "@/components/contact/ContactModalContext";
+import { PLEDGE_CTA } from "@/lib/cta";
 
 const textVariants = {
   hidden: { opacity: 0, x: -24 },
@@ -65,8 +66,8 @@ export function Hero() {
               </p>
               <div className="hidden flex-col items-center gap-4 lg:flex">
                 <div className="flex flex-col items-center gap-1">
-                  <AnimatedButton href="/pledge" variant="primary">
-                    Join the movement
+                  <AnimatedButton href={PLEDGE_CTA.href} variant="primary">
+                    {PLEDGE_CTA.label}
                   </AnimatedButton>
                   <p className="text-sm text-stone-600 dark:text-stone-400">
                     Pledge to be an organ donor
@@ -119,8 +120,8 @@ export function Hero() {
           {/* CTA below hero image on mobile only */}
           <div className="flex flex-col items-center gap-4 lg:hidden">
             <div className="flex flex-col items-center gap-1">
-              <AnimatedButton href="/pledge" variant="primary">
-                Join the movement
+              <AnimatedButton href={PLEDGE_CTA.href} variant="primary">
+                {PLEDGE_CTA.label}
               </AnimatedButton>
               <p className="text-sm text-stone-600 dark:text-stone-400">
                 Pledge to be an organ donor

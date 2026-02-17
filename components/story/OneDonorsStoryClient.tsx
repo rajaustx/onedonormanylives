@@ -2,8 +2,10 @@
 
 import { StoryHero } from "./StoryHero";
 import { StoryTimeline } from "./StoryTimeline";
+import { WhatWeLearnedSection } from "./WhatWeLearnedSection";
 import { PortraitBreak } from "./PortraitBreak";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
+import { PLEDGE_CTA } from "@/lib/cta";
 import { useContactModal } from "@/components/contact/ContactModalContext";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { fadeIn } from "@/lib/animation";
@@ -16,6 +18,8 @@ export function OneDonorsStoryClient() {
       <StoryHero />
 
       <StoryTimeline />
+
+      <WhatWeLearnedSection />
 
       <PortraitBreak />
 
@@ -30,8 +34,8 @@ export function OneDonorsStoryClient() {
               Her story is not an ending. It is an invitation.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
-              <AnimatedButton href="/pledge" variant="primary">
-                Pledge to be an organ donor
+              <AnimatedButton href={PLEDGE_CTA.href} variant="primary">
+                {PLEDGE_CTA.label}
               </AnimatedButton>
               <button
                 type="button"
