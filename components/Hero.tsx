@@ -95,7 +95,7 @@ export function Hero() {
             <div className="relative aspect-[5/6] w-full max-w-[320px] overflow-hidden rounded-full sm:max-w-[380px] lg:max-w-[360px] [box-shadow:0_0_40px_rgba(0,0,0,0.08),0_0_80px_rgba(180,83,9,0.15),0_8px_32px_rgba(0,0,0,0.12)] dark:[box-shadow:0_0_50px_rgba(0,0,0,0.2),0_0_100px_rgba(180,83,9,0.12),0_8px_40px_rgba(0,0,0,0.3)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/hero/meena-hero-highres.png"
+                src="/meena-hero-highres.webp"
                 alt="Dr. Thankam Subramonian, first anonymous kidney donor in Karnataka"
                 width={340}
                 height={408}
