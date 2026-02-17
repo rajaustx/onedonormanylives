@@ -133,6 +133,16 @@ A stranger receives a new life
 After court approval, she donated her kidney to a nearly 50-year-old unknown woman, giving her a new life. The transplant was successful. Both are healthy after surgery. The court said such acts of compassion deserve full respect and called it a rare and inspiring case.`,
   },
   {
+    id: "newsfirst-kannada-2026",
+    publication: "NewsFirst Kannada",
+    headline: "A doctor who donated her kidney to a stranger… this is a rare story.",
+    date: "2026-02-17",
+    image: "/press/newsfirst-kannada-interview.png",
+    excerpt:
+      "In this day and age when most people hesitate to part with money to help people or even close relatives... this is a story of a doctor in Bangalore who's become the first person in Karnataka to voluntarily donate a kidney to a complete stranger with no expectation of monetary reward. This act is called non-directed donation. It is legal, voluntary, and one of the most powerful forms of generosity in modern medicine.",
+    url: "https://www.youtube.com/watch?v=s1OMtkinXcw",
+  },
+  {
     id: "dhinathanthi-2026",
     publication: "Dhinathanthi (Tamil)",
     headline: "A woman doctor donates a kidney to a 56-year-old woman in need",

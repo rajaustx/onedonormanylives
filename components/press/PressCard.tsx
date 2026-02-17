@@ -138,7 +138,9 @@ export function PressCard({ entry, index, reduceMotion }: PressCardProps) {
                 rel="noopener noreferrer"
                 className="mt-2 inline-block text-sm font-medium text-amber-700 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300"
               >
-                Read article online →
+                {entry.url.includes("youtube") || entry.url.includes("youtu.be")
+                  ? "Watch video →"
+                  : "Read article online →"}
               </a>
             )}
 
