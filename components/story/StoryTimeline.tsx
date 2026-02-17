@@ -127,8 +127,8 @@ export function StoryTimeline() {
         </h2>
 
         <div className="relative">
-          {/* Vertical line - thicker for prominence */}
-          <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 overflow-hidden rounded-full bg-stone-200 dark:bg-stone-700">
+          {/* Vertical line - thick for visible scroll progress */}
+          <div className="absolute left-1/2 top-0 h-full w-3 -translate-x-1/2 overflow-hidden rounded-full bg-stone-200 dark:bg-stone-700 sm:w-4">
             {!reduceMotion && (
               <motion.div
                 className="absolute left-0 top-0 h-full w-full origin-top rounded-full bg-amber-600 dark:bg-amber-500"
@@ -193,7 +193,7 @@ function TimelineNode({
           {event.side === "left" ? card : <div className="hidden w-[calc(50%-1.5rem)] md:block" />}
         </div>
         <div className="flex shrink-0">
-          <div className="h-5 w-5 rounded-full border-2 border-amber-600 bg-white shadow-sm dark:border-amber-500 dark:bg-stone-900" />
+          <div className="h-6 w-6 rounded-full border-2 border-amber-600 bg-white shadow-sm dark:border-amber-500 dark:bg-stone-900 sm:h-7 sm:w-7" />
         </div>
         <div className="flex w-full justify-center md:w-[calc(50%-1.5rem)] md:justify-start md:pl-6">
           {event.side === "right" ? card : <div className="hidden w-[calc(50%-1.5rem)] md:block" />}
