@@ -186,7 +186,7 @@ function TimelineNode({
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={finalVariants}
-      className="relative flex min-h-[160px] items-center py-12 md:py-16"
+      className="relative flex min-h-[160px] items-center py-20 md:py-28"
     >
       <div className="flex w-full flex-col items-center gap-4 md:flex-row md:gap-6">
         <div className="flex w-full justify-center md:w-[calc(50%-1.5rem)] md:justify-end md:pr-6">

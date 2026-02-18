@@ -5,7 +5,7 @@ import { StoryTimeline } from "./StoryTimeline";
 import { WhatWeLearnedSection } from "./WhatWeLearnedSection";
 import { PortraitBreak } from "./PortraitBreak";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
-import { PLEDGE_CTA } from "@/lib/cta";
+import { PLEDGE_CTA, SHARE_STORY_CTA } from "@/lib/cta";
 import { useContactModal } from "@/components/contact/ContactModalContext";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { fadeIn } from "@/lib/animation";
@@ -34,16 +34,12 @@ export function OneDonorsStoryClient() {
               Her story is not an ending. It is an invitation.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
-              <AnimatedButton href={PLEDGE_CTA.href} variant="primary">
+              <AnimatedButton onClick={openContactModal} variant="primary">
+                {SHARE_STORY_CTA.label}
+              </AnimatedButton>
+              <AnimatedButton href={PLEDGE_CTA.href} variant="secondary">
                 {PLEDGE_CTA.label}
               </AnimatedButton>
-              <button
-                type="button"
-                onClick={openContactModal}
-                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-amber-600 px-8 py-4 font-medium text-amber-700 transition-colors hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 dark:border-amber-500 dark:text-amber-400 dark:hover:bg-amber-950/30"
-              >
-                Leave a message of gratitude
-              </button>
             </div>
           </ScrollReveal>
         </div>

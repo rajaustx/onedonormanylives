@@ -71,7 +71,7 @@ export function Header() {
           <img
             src="/tree-of-life-logo-nobg.png"
             alt="One Donor Many Lives"
-            className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14"
+            className="h-14 w-14 shrink-0 object-contain sm:h-20 sm:w-20"
           />
           One Donor Many Lives
         </Link>

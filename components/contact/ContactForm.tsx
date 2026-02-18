@@ -4,6 +4,9 @@ import { useState, useRef } from "react";
 
 const INQUIRY_OPTIONS = [
   { value: "story", label: "Share My Donation Story" },
+  { value: "organ-quest", label: "My quest for an organ" },
+  { value: "inspired", label: "Stories that inspired me" },
+  { value: "posthumous", label: "How I became a Posthumous Organ Donor" },
   { value: "article", label: "Article for Blog" },
   { value: "other", label: "Other" },
 ] as const;

@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { scrollReveal } from "@/lib/animation";
-import { AnimatedButton } from "@/components/ui/AnimatedButton";
 
 export function OneDonorStorySection() {
   return (
@@ -21,9 +21,14 @@ export function OneDonorStorySection() {
           <p className="text-stone-600 dark:text-stone-400">
             One decision can trigger a transplant chain that helps multiple families. Her story is not the end. It is the beginning.
           </p>
-          <AnimatedButton href="/one-donors-story" variant="primary" className="mt-6">
-            Read her journey →
-          </AnimatedButton>
+          <p className="mt-6">
+            <Link
+              href="/one-donors-story"
+              className="text-amber-700 underline-offset-2 hover:underline dark:text-amber-400"
+            >
+              Read her journey →
+            </Link>
+          </p>
         </ScrollReveal>
       </div>
     </section>

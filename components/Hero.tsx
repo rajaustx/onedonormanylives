@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import { useContactModal } from "@/components/contact/ContactModalContext";
-import { PLEDGE_CTA } from "@/lib/cta";
+import { PLEDGE_CTA, SHARE_STORY_CTA } from "@/lib/cta";
 
 const textVariants = {
   hidden: { opacity: 0, x: -24 },
@@ -66,23 +66,19 @@ export function Hero() {
               </p>
               <div className="hidden flex-col items-center gap-4 lg:flex">
                 <div className="flex flex-col items-center gap-1">
-                  <AnimatedButton href={PLEDGE_CTA.href} variant="primary">
-                    {PLEDGE_CTA.label}
+                  <AnimatedButton onClick={openContactModal} variant="primary">
+                    {SHARE_STORY_CTA.label}
                   </AnimatedButton>
                   <p className="text-sm text-stone-600 dark:text-stone-400">
-                    Pledge to be an organ donor
+                    Share your story or message of gratitude
                   </p>
                   <p className="text-xs text-stone-500 dark:text-stone-500">
                     Part of a growing nationwide donor movement
                   </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={openContactModal}
-                  className="text-amber-700 underline-offset-2 hover:underline dark:text-amber-400"
-                >
-                  Add your message of gratitude
-                </button>
+                <AnimatedButton href={PLEDGE_CTA.href} variant="ghost">
+                  {PLEDGE_CTA.label}
+                </AnimatedButton>
               </div>
             </motion.div>
           </div>
@@ -120,23 +116,19 @@ export function Hero() {
           {/* CTA below hero image on mobile only */}
           <div className="flex flex-col items-center gap-4 lg:hidden">
             <div className="flex flex-col items-center gap-1">
-              <AnimatedButton href={PLEDGE_CTA.href} variant="primary">
-                {PLEDGE_CTA.label}
+              <AnimatedButton onClick={openContactModal} variant="primary">
+                {SHARE_STORY_CTA.label}
               </AnimatedButton>
               <p className="text-sm text-stone-600 dark:text-stone-400">
-                Pledge to be an organ donor
+                Share your story or message of gratitude
               </p>
               <p className="text-xs text-stone-500 dark:text-stone-500">
                 Part of a growing nationwide donor movement
               </p>
             </div>
-            <button
-              type="button"
-              onClick={openContactModal}
-              className="text-amber-700 underline-offset-2 hover:underline dark:text-amber-400"
-            >
-              Add your message of gratitude
-            </button>
+            <AnimatedButton href={PLEDGE_CTA.href} variant="ghost">
+              {PLEDGE_CTA.label}
+            </AnimatedButton>
           </div>
         </div>
 
