@@ -133,6 +133,35 @@ A stranger receives a new life
 After court approval, she donated her kidney to a nearly 50-year-old unknown woman, giving her a new life. The transplant was successful. Both are healthy after surgery. The court said such acts of compassion deserve full respect and called it a rare and inspiring case.`,
   },
   {
+    id: "mathrubhumi-news-2026",
+    publication: "Mathrubhumi News (Malayalam)",
+    headline: "Donated kidney through legal battle",
+    date: "2026-02-18",
+    image: "/press/mathrubhumi-news-malayalam.png",
+    excerpt:
+      "It's not that I expect to change the world because of this one action... but if can help to even spark a conversation about organ donorship, I would feel I have succeeded. If we realize that we do not need our organs after death, and that it could end up saving/enhancing the lives of 5-7 other people, that would be a great thing...",
+    fullText: `It's not that I expect to change the world because of this one action... but if can help to even spark a conversation about organ donorship, I would feel I have succeeded. If we realize that we do not need our organs after death, and that it could end up saving/enhancing the lives of 5-7 other people, that would be a great thing...`,
+    url: "https://www.youtube.com/watch?v=wVGek12mTOk",
+  },
+  {
+    id: "mathrubhumi-print-2026",
+    publication: "Mathrubhumi (Malayalam)",
+    headline: "\"A heart that gave life\" A Malayali doctor who became a model of selflessness",
+    date: "2026-02-18",
+    image: "/press/mathrubhumi-print-malayalam.png",
+    excerpt:
+      "Dr. Thankam Subramonian is not someone who seeks publicity. She is a doctor who quietly chose to give part of her life so another person could live. While working in the medical field and witnessing suffering closely, she felt a deep responsibility toward humanity.",
+    fullText: `Dr. Thankam Subramonian is not someone who seeks publicity. She is a doctor who quietly chose to give part of her life so another person could live.
+
+While working in the medical field and witnessing suffering closely, she felt a deep responsibility toward humanity. That sense of compassion eventually led her to donate one of her kidneys to a patient in need. Her decision was not impulsive. It came after careful thought, discussions, and overcoming many emotional and legal hurdles.
+
+Even family opposition and procedural complications did not weaken her resolve. She believed that if she had the ability to save a life, she should act. Her courage reflects the humanitarian values she grew up with. Her grandfather was a freedom fighter. Her mother was known for her compassion and service to others. Those influences shaped her outlook.
+
+By donating her kidney, Dr. Thanka demonstrated that true service to humanity goes beyond words. Her act is described as revolutionary in its compassion. The writer says they had never seen God in person, but in witnessing this act, they felt they had seen divinity through her.
+
+Today, she stands as a shining example of sacrifice, courage, and kindness. Her story is being celebrated as a reminder that humanity is alive in those who choose to act for others.`,
+  },
+  {
     id: "newsfirst-kannada-2026",
     publication: "NewsFirst Kannada",
     headline: "A doctor who donated her kidney to a stranger… this is a rare story.",

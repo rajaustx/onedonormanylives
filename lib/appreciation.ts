@@ -55,7 +55,7 @@ export function getAppreciationData(): AppreciationEntry[] {
         initials,
         location,
         index: parseInt(String(row.id ?? row.index ?? 0), 10) || 0,
-        date: (row.date ?? "").trim(),
+        date: (row.date ?? row.Date ?? "").trim(),
         isFeatured,
         relationship: (row.relationship ?? "").trim(),
       };

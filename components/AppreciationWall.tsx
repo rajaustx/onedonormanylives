@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import type { AppreciationEntry } from "@/lib/appreciation";
+import { parseDateToTimestamp } from "@/lib/parse-date";
 
 const CARD_COLORS = [
   "bg-amber-50/90 dark:bg-amber-950/30",
@@ -56,18 +57,32 @@ export function AppreciationWall({ data }: AppreciationWallProps) {
     switch (sortBy) {
       case "newest":
         sorted.sort((a, b) => {
-          const timeA = a.date ? new Date(a.date).getTime() : 0;
-          const timeB = b.date ? new Date(b.date).getTime() : 0;
-          const diff = timeB - timeA;
-          return diff !== 0 ? diff : a.index - b.index;
+          const timeA = parseDateToTimestamp(a.date);
+          const timeB = parseDateToTimestamp(b.date);
+          const hasDateA = timeA > 0;
+          const hasDateB = timeB > 0;
+          if (hasDateA && hasDateB) {
+            const diff = timeB - timeA;
+            return diff !== 0 ? diff : b.index - a.index;
+          }
+          if (!hasDateA && hasDateB) return -1;
+          if (hasDateA && !hasDateB) return 1;
+          return b.index - a.index;
         });
         break;
       case "oldest":
         sorted.sort((a, b) => {
-          const timeA = a.date ? new Date(a.date).getTime() : 0;
-          const timeB = b.date ? new Date(b.date).getTime() : 0;
-          const diff = timeA - timeB;
-          return diff !== 0 ? diff : a.index - b.index;
+          const timeA = parseDateToTimestamp(a.date);
+          const timeB = parseDateToTimestamp(b.date);
+          const hasDateA = timeA > 0;
+          const hasDateB = timeB > 0;
+          if (hasDateA && hasDateB) {
+            const diff = timeA - timeB;
+            return diff !== 0 ? diff : a.index - b.index;
+          }
+          if (!hasDateA && hasDateB) return 1;
+          if (hasDateA && !hasDateB) return -1;
+          return a.index - b.index;
         });
         break;
       case "featured":
