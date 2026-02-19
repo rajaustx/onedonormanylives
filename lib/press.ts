@@ -1,8 +1,11 @@
+export type PressLanguage = "en" | "other";
+
 export interface PressEntry {
   id: string;
   publication: string;
   headline: string;
   date: string;
+  language?: PressLanguage;
   image?: string;
   excerpt?: string;
   fullText?: string;
@@ -20,6 +23,7 @@ export const pressEntries: PressEntry[] = [
   {
     id: "indian-express-2026",
     publication: "The Indian Express",
+    language: "en",
     headline:
       "She wanted to donate her kidney to a stranger, so this Bengaluru doctor approached the high court",
     date: "2026-02-15",
@@ -48,6 +52,7 @@ Dr Thankam said she hopes her case creates awareness. "The work is still huge…
   {
     id: "daily-hunt-kannada-2026",
     publication: "Daily Hunt (Vijay Karnataka)",
+    language: "other",
     headline:
       "Doctor Donates Kidney to an Unrelated Person After Legal Battle — The Story of Bengaluru's \"Real Hero\"",
     date: "2026-02-15",
@@ -74,6 +79,7 @@ It also notes that Dr. Thankam's life and actions have given a strong message of
   {
     id: "toi-2024",
     publication: "Times of India",
+    language: "en",
     headline: "Gift of life: Doctor fights legal battle to give kidney to stranger",
     date: "2026",
     image: "/press/article-in-times-of-india.jpg",
@@ -92,6 +98,7 @@ Her donation was not an isolated act of altruism—she has also served with Doct
   {
     id: "rajasthan-patrika-2026",
     publication: "Rajasthan Patrika",
+    language: "other",
     headline:
       "Victory of Humanity: When the hospital committee refused approval, she knocked on the High Court's door. Struggle since 2016, approval granted in 2025",
     date: "2026-02-16",
@@ -135,6 +142,7 @@ After court approval, she donated her kidney to a nearly 50-year-old unknown wom
   {
     id: "mathrubhumi-news-2026",
     publication: "Mathrubhumi News (Malayalam)",
+    language: "other",
     headline: "Donated kidney through legal battle",
     date: "2026-02-18",
     image: "/press/mathrubhumi-news-malayalam.png",
@@ -144,8 +152,84 @@ After court approval, she donated her kidney to a nearly 50-year-old unknown wom
     url: "https://www.youtube.com/watch?v=wVGek12mTOk",
   },
   {
+    id: "happiest-health-2026",
+    publication: "Happiest Health",
+    language: "en",
+    headline: "Bangalore doctor creates history, donates kidney to a stranger",
+    date: "2026-02-17",
+    image: "/press/happiest-health-bangalore-doctor.png",
+    excerpt:
+      "Dr Thankam Subramonian says, she wanted to spread a message that kidney donation is safe to end the stigma around it.",
+    url: "https://www.happiesthealth.com/articles/kidney-health/bangalore-doctor-donates-kidney-to-a-stranger",
+  },
+  {
+    id: "vijay-karnataka-2026",
+    publication: "Vijay Karnataka",
+    language: "other",
+    headline: "Aparichita Mahilege Motte Pinda Dana (An anonymous woman donates a kidney)",
+    date: "2026-02-18",
+    image: "/press/prajavani-kidney-donation.png",
+    excerpt:
+      "A kidney donation that changed a stranger's life. A woman from Rajasthan living in Bengaluru has donated her kidney to a person she did not know, giving them a new lease on life.",
+    fullText: `A kidney donation that changed a stranger's life
+
+Bengaluru:
+A woman from Rajasthan living in Bengaluru has donated her kidney to a person she did not know, giving them a new lease on life.
+
+The donor, Dr. Thankam (56), works in the healthcare sector. Deeply moved by the suffering of patients and aware of the critical shortage of organ donors, she voluntarily decided to donate one of her kidneys to save a life.
+
+She was inspired after learning about the large number of patients waiting for transplants. According to her, thousands remain on waiting lists due to the shortage of donors. Seeing this reality firsthand strengthened her resolve to help.
+
+Overcoming hurdles
+
+Though her family initially expressed concern, she stood firm in her decision. After undergoing medical evaluation and completing all legal formalities, the transplant was successfully carried out. Doctors confirmed that both the donor and the recipient are recovering well.
+
+Dr. Thankam stated that the decision was not impulsive. She had thought about it for years before finally acting. She believes that if one has the ability to save a life, one should not hesitate.
+
+Kidney Transplants in Bengaluru
+
+A table in the article provides data on kidney transplants in Bengaluru over the past few years:
+
+Year    Donors  Registered  Transplants
+2022    151     415         348
+2023    178     469         393
+2024    162     457         339
+2025    198     564         397
+2026    12      32          14
+
+The article notes that while registrations for kidney transplants have increased, the number of donors remains insufficient compared to the demand.
+
+Increasing Demand
+
+Medical experts emphasize that the demand for kidney transplants continues to rise due to lifestyle diseases, hypertension, and diabetes. They stress the need for greater awareness about organ donation.
+
+Dr. Thankam hopes her act will inspire others to consider organ donation. She says saving even one life brings immense satisfaction and meaning.`,
+  },
+  {
+    id: "prajavani-2026",
+    publication: "Prajavani",
+    language: "other",
+    headline: "Kidney Donation: Donating to an Unknown Woman",
+    date: "2026-02-19",
+    image: "/press/prajavani-kidney-donation-web.png",
+    excerpt:
+      "With permission from the High Court, doctor Dr. Thankam S. has donated a living kidney to a woman she did not know and is now encouraging awareness about organ donation.",
+    fullText: `Doctor donates after High Court approval, speaks about raising awareness
+
+BENGALURU:
+With permission from the High Court, doctor Dr. Thankam S. has donated a living kidney to a woman she did not know and is now encouraging awareness about organ donation.
+
+Dr. Thankam said:
+
+"The kidney donation was safe, and young people especially should be made aware about it. That is why I pursued the legal process and donated my kidney to a stranger."
+
+She made the donation following court approval after a legal process. The article reports that she has been trying to promote understanding about organ donation and the safety of kidney donation generally.`,
+    url: "https://www.prajavani.net/district/bengaluru-city/live-kidney-donation-to-unknown-woman-bengaluru-3788234",
+  },
+  {
     id: "mathrubhumi-print-2026",
     publication: "Mathrubhumi (Malayalam)",
+    language: "other",
     headline: "\"A heart that gave life\" A Malayali doctor who became a model of selflessness",
     date: "2026-02-18",
     image: "/press/mathrubhumi-print-malayalam.png",
@@ -164,6 +248,7 @@ Today, she stands as a shining example of sacrifice, courage, and kindness. Her 
   {
     id: "newsfirst-kannada-2026",
     publication: "NewsFirst Kannada",
+    language: "other",
     headline: "A doctor who donated her kidney to a stranger… this is a rare story.",
     date: "2026-02-17",
     image: "/press/newsfirst-kannada-interview.png",
@@ -174,6 +259,7 @@ Today, she stands as a shining example of sacrifice, courage, and kindness. Her 
   {
     id: "dhinathanthi-2026",
     publication: "Dhinathanthi (Tamil)",
+    language: "other",
     headline: "A woman doctor donates a kidney to a 56-year-old woman in need",
     date: "2026",
     image: "/press/article-in-dhinathanthi-tamil.jpeg",

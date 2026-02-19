@@ -208,9 +208,17 @@ export function AppreciationWall({ data }: AppreciationWallProps) {
             const batch4 = filteredAndSortedData.slice(p3);
 
             const videos = [
-              { id: "tc4wqtM2jUs", title: "One gift, many voices", subtitle: "" },
+              {
+                id: "tc4wqtM2jUs",
+                title: "Dr. H. Sudarshan Ballal",
+                subtitle: "Chairman, Medical Advisory Board, Manipal Hospitals — Nephrologist with 39+ years experience",
+              },
               { id: "qC_jb3komEw", title: "A Corridor of Honor", subtitle: "Hospital tribute after anonymous kidney donation" },
-              { id: "4inrBkkqmtI", title: "Stories from the journey", subtitle: "" },
+              {
+                id: "4inrBkkqmtI",
+                title: "Dr. Rohan Augustine",
+                subtitle: "Consultant Nephrologist, Manipal Hospital, Bangalore",
+              },
             ];
 
             const renderCards = (batch: typeof filteredAndSortedData, offset: number) =>
@@ -275,9 +283,14 @@ export function AppreciationWall({ data }: AppreciationWallProps) {
                 </motion.article>
               ));
 
+            const scrollToVideo = (videoId: string) => {
+              document.getElementById(`video-${videoId}`)?.scrollIntoView({ behavior: "smooth" });
+            };
+
             const renderVideo = (video: (typeof videos)[0]) => (
               <motion.section
                 key={video.id}
+                id={`video-${video.id}`}
                 initial={reduceMotion ? false : { opacity: 0 }}
                 whileInView={reduceMotion ? undefined : { opacity: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
@@ -319,6 +332,53 @@ export function AppreciationWall({ data }: AppreciationWallProps) {
 
             return (
               <>
+                {/* Video testimonials - thumbnails at top for easy access */}
+                <section
+                  className="mb-12 rounded-2xl border border-stone-200/60 bg-stone-50/80 p-6 dark:border-stone-700/40 dark:bg-stone-900/50"
+                  aria-labelledby="video-testimonials-heading"
+                >
+                  <h3
+                    id="video-testimonials-heading"
+                    className="mb-4 font-serif text-lg font-medium text-stone-800 dark:text-stone-200 sm:text-xl"
+                  >
+                    Video testimonials
+                  </h3>
+                  <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+                    {videos.map((video) => (
+                      <button
+                        key={video.id}
+                        type="button"
+                        onClick={() => scrollToVideo(video.id)}
+                        className="group flex flex-col items-center gap-2 text-left transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 rounded-xl overflow-hidden"
+                      >
+                        <div className="relative aspect-video w-full min-w-[200px] max-w-[280px] overflow-hidden rounded-lg shadow-lg ring-1 ring-stone-200/60 dark:ring-stone-700/50">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                            alt=""
+                            className="h-full w-full object-cover transition-opacity group-hover:opacity-90"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/30">
+                            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 shadow-lg">
+                              <svg
+                                className="ml-1 h-6 w-6 text-amber-600"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                aria-hidden
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <span className="text-sm font-medium text-stone-700 dark:text-stone-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">
+                          {video.title}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </section>
+
                 <div
                   className="columns-1 gap-6 sm:columns-2 lg:columns-3 xl:columns-4 [column-fill:balance]"
                   style={{ perspective: "1200px" }}

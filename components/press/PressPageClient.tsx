@@ -22,29 +22,58 @@ export function PressPageClient({ entries }: PressPageClientProps) {
             Media coverage of anonymous kidney donation and related stories.
           </p>
 
-          {entries.length > 0 && (
-            <nav
-              className="mt-8 flex flex-col gap-3 border-t border-stone-200/60 pt-6 dark:border-stone-700/60"
-              aria-label="Jump to article"
-            >
-              <span className="font-serif text-sm font-medium uppercase tracking-wide text-stone-500 dark:text-stone-400">
-                In this page
-              </span>
-              <div className="flex flex-wrap gap-x-5 gap-y-2">
-                {[...entries]
-                  .sort((a, b) => a.publication.localeCompare(b.publication))
-                  .map((entry) => (
-                  <a
-                    key={entry.id}
-                    href={`#${entry.id}`}
-                    className="text-base font-medium text-stone-700 underline-offset-4 hover:text-amber-700 hover:underline dark:text-stone-300 dark:hover:text-amber-400"
-                  >
-                    {entry.publication}
-                  </a>
-                ))}
-              </div>
-            </nav>
-          )}
+          {entries.length > 0 && (() => {
+            const englishEntries = entries
+              .filter((e) => (e.language ?? "en") === "en")
+              .sort((a, b) => a.publication.localeCompare(b.publication));
+            const otherEntries = entries
+              .filter((e) => (e.language ?? "en") === "other")
+              .sort((a, b) => a.publication.localeCompare(b.publication));
+            return (
+              <nav
+                className="mt-8 border-t border-stone-200/60 pt-6 dark:border-stone-700/60"
+                aria-label="Jump to article"
+              >
+                <span className="font-serif text-sm font-medium uppercase tracking-wide text-stone-500 dark:text-stone-400">
+                  In this page
+                </span>
+                <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                  <div className="space-y-2 rounded-xl border border-amber-200/60 bg-amber-50/50 px-4 py-3 dark:border-amber-800/40 dark:bg-amber-950/20">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+                      English
+                    </p>
+                    <div className="flex flex-col gap-1.5">
+                      {englishEntries.map((entry) => (
+                        <a
+                          key={entry.id}
+                          href={`#${entry.id}`}
+                          className="text-base font-medium text-amber-900 underline-offset-2 hover:text-amber-700 hover:underline dark:text-amber-100 dark:hover:text-amber-300"
+                        >
+                          {entry.publication}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="space-y-2 rounded-xl border border-stone-300/60 bg-stone-100/80 px-4 py-3 dark:border-stone-600/40 dark:bg-stone-800/30">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-400">
+                      Kannada, Malayalam, Tamil & others
+                    </p>
+                    <div className="flex flex-col gap-1.5">
+                      {otherEntries.map((entry) => (
+                        <a
+                          key={entry.id}
+                          href={`#${entry.id}`}
+                          className="text-base font-medium text-stone-700 underline-offset-2 hover:text-amber-700 hover:underline dark:text-stone-300 dark:hover:text-amber-400"
+                        >
+                          {entry.publication}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            );
+          })()}
         </div>
       </section>
 
