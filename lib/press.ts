@@ -257,6 +257,23 @@ Today, she stands as a shining example of sacrifice, courage, and kindness. Her 
     url: "https://www.youtube.com/watch?v=s1OMtkinXcw",
   },
   {
+    id: "malayala-manorama-palakkad-2026",
+    publication: "Malayala Manorama (Palakkad)",
+    language: "other",
+    headline: "Malayali doctor donates kidney to a stranger suffering from kidney disease",
+    date: "2026-02-19",
+    image: "/press/malayala-manorama-palakkad.png",
+    excerpt:
+      "Bengaluru: A Malayali doctor donated a kidney to save the life of a person suffering from kidney disease. Dr. Thankam S. donated one of her kidneys to a patient who needed a transplant.",
+    fullText: `Bengaluru: A Malayali doctor donated a kidney to save the life of a person suffering from kidney disease.
+
+The donor is Dr. Thankam S., who works at a private hospital in Bengaluru. She donated one of her kidneys to a patient who needed a transplant.
+
+Dr. Thankam Subramonian has been working in the Gynecology Department of a hospital in Bengaluru since 2014. She used to live at P.T.P. Nagar, Trivandrum many years back.
+
+She is 56 years old. On February 10, she donated her kidney. The surgery was successful, and she is currently under rest and recovery.`,
+  },
+  {
     id: "dhinathanthi-2026",
     publication: "Dhinathanthi (Tamil)",
     language: "other",

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { DM_Serif_Display, Source_Sans_3 } from "next/font/google";
 import { ContactModalProvider } from "@/components/contact/ContactModalContext";
 import { PageFloatingCTA } from "@/components/ui/PageFloatingCTA";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-12TTPFNKEL";
 
 const dmSerif = DM_Serif_Display({
   variable: "--font-display",
@@ -52,6 +55,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSerif.variable} ${sourceSans.variable}`}>
       <body className="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <ContactModalProvider>
           {children}
           <PageFloatingCTA />
