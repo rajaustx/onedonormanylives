@@ -21,6 +21,70 @@ export function truncateToWords(text: string, maxWords: number): string {
 
 export const pressEntries: PressEntry[] = [
   {
+    id: "udayavani-2026",
+    publication: "Udayavani",
+    language: "other",
+    headline: "I donated a kidney without knowing who the recipient was",
+    date: "2026-02-20",
+    image: "/press/udayavani-kidney-donation.png",
+    excerpt:
+      "A rare decision by a stranger that saved a life. Dr. Thankam (59) voluntarily donated one of her kidneys to a patient she had never met. The surgery was successfully performed at a private hospital in Bengaluru.",
+    fullText: `A rare decision by a stranger that saved a life
+
+Bengaluru
+
+A woman voluntarily donated one of her kidneys to a patient she had never met or known. The surgery was successfully performed at a private hospital in Bengaluru.
+
+The donor is Dr. Thankam (59). She decided to donate her kidney after learning about the severe shortage of organ donors and the increasing number of patients waiting for transplants.
+
+Speaking about her decision, she said that she did not know who would receive her kidney, but she felt that if her health permitted and she could save a life, she should not hesitate.
+
+⸻
+
+"Kidney donation is safe," says Dr. Thankam
+
+Dr. Thankam explained that many people hesitate to donate organs due to fear and misinformation. She emphasized that with modern medical procedures, kidney donation is safe, and donors can continue to live normal lives.
+
+She underwent detailed medical examinations and legal formalities before the transplant. The High Court approval process was completed before proceeding with the surgery.
+
+⸻
+
+Rising demand for kidneys
+
+The article notes that the demand for kidney transplants has increased significantly due to diabetes, hypertension, and lifestyle-related diseases. While registrations for transplants are rising each year, the number of donors remains insufficient.
+
+Experts stress the importance of spreading awareness about organ donation so that more lives can be saved.
+
+⸻
+
+Background
+
+Dr. Thankam has been working in the medical field for many years. She stated that witnessing the suffering of patients influenced her decision. The transplant surgery was performed in February 2025, and both donor and recipient are recovering well.`,
+  },
+  {
+    id: "bangalore-mirror-2025",
+    publication: "Bangalore Mirror",
+    language: "en",
+    headline: "Altruistic doctor wins approval for kidney gift",
+    date: "2025-12-17",
+    image: "/press/bangalore-mirror-altruistic-doctor.png",
+    excerpt:
+      "High Court clears 58-year-old medic to donate kidney without expecting payment. The Karnataka High Court has permitted a 58-year-old doctor to donate one of her kidneys as an altruistic donor to any eligible recipient, without seeking monetary or other consideration.",
+    url: "https://bangaloremirror.indiatimes.com/bangalore/others/altruistic-doctor-wins-approval-for-kidney-gift/articleshow/126021455.cms",
+  },
+  {
+    id: "livelaw-2025",
+    publication: "Livelaw.in",
+    language: "en",
+    headline:
+      "Karnataka High Court Permits Doctor To Donate One Of Her Kidneys As Altruistic Donor Without Compensation",
+    date: "2025-12-16",
+    image: "/press/livelaw-karnataka-high-court.png",
+    excerpt:
+      "The Karnataka High Court has permitted a doctor to donate one of her kidneys to a deserving person as an altruistic donor without seeking any compensation. The 58-year-old doctor had approached the court after her application to the Hospital Based Authorization Committee was rejected.",
+    url: "https://www.livelaw.in/high-court/karnataka-high-court/karnataka-high-court-allows-doctor-kidney-donation-without-compensation-513447",
+  },
+  {
     id: "indian-express-2026",
     publication: "The Indian Express",
     language: "en",

@@ -87,12 +87,31 @@ const timelineEvents = [
     side: "right" as const,
   },
   {
+    year: "2025 — December",
+    title: "A Word from the Lawyer",
+    subheader: "Dr. S.V. Joga Rao",
+    summary: "",
+    side: "left" as const,
+    quote:
+      "Friends, it is indeed a glorious day for me personally n professionally and the entire Team LA 🤝\n\nI am truly touched by Honorable High Court's Order @ Directing Hospital to facilitate Altruistic Donation from Dr Thankam @ Kidney Transplant for a deserving Patient.\n\nExcited that we could support Dr Thankam to achieve her Life Dream. Momentous day for all of us🙏\n\nMy gratitude to the entire Team LA for their unstinted support extended to me in my journey for this Case🤝",
+    links: [
+      {
+        url: "https://www.livelaw.in/high-court/karnataka-high-court/karnataka-high-court-allows-doctor-kidney-donation-without-compensation-513447",
+        label: "Live Law",
+      },
+      {
+        url: "https://bangaloremirror.indiatimes.com/bangalore/others/altruistic-doctor-wins-approval-for-kidney-gift/articleshow/126021455.cms",
+        label: "Bangalore Mirror",
+      },
+    ],
+  },
+  {
     year: "2026 — February 2",
     title: "Approval at Last",
     subheader: "Permission granted",
     summary:
       "The authorization committee met again on February 2, 2026. Backed by the court order, her case was approved, clearing the way for surgery within days.",
-    side: "left" as const,
+    side: "right" as const,
   },
   {
     year: "2026 — February 10",
@@ -100,7 +119,7 @@ const timelineEvents = [
     subheader: "A journey fulfilled",
     summary:
       "On February 10, 2026, the surgery took place. After nearly a decade of persistence, Dr. Thankam successfully completed an anonymous living kidney donation.",
-    side: "right" as const,
+    side: "left" as const,
   },
 ];
 
@@ -165,6 +184,9 @@ function TimelineNode({
   const variants = event.side === "left" ? scrollRevealLeft : scrollRevealRight;
   const finalVariants = reduceMotion ? { hidden: { opacity: 1 }, visible: { opacity: 1 } } : variants;
 
+  const hasQuote = "quote" in event && event.quote;
+  const hasLinks = "links" in event && event.links && event.links.length > 0;
+
   const card = (
     <div className="rounded-2xl border border-stone-200/60 bg-white p-6 shadow-sm dark:border-stone-700/40 dark:bg-stone-900/50">
       <p className="text-sm font-semibold text-amber-700 dark:text-amber-400">{event.year}</p>
@@ -176,7 +198,28 @@ function TimelineNode({
           {event.subheader}
         </p>
       )}
-      <p className="mt-3 text-stone-600 dark:text-stone-400">{event.summary}</p>
+      {hasQuote ? (
+        <blockquote className="mt-3 text-stone-600 dark:text-stone-400">
+          <p className="whitespace-pre-wrap italic">{event.quote}</p>
+        </blockquote>
+      ) : (
+        <p className="mt-3 text-stone-600 dark:text-stone-400">{event.summary}</p>
+      )}
+      {hasLinks && (
+        <div className="mt-4 flex flex-wrap gap-3">
+          {event.links.map((link) => (
+            <a
+              key={link.url}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-amber-700 hover:text-amber-800 hover:underline dark:text-amber-400 dark:hover:text-amber-300"
+            >
+              {link.label} →
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 

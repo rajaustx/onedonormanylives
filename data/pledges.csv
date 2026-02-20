@@ -6,3 +6,6 @@ pvt_id,id,first_name,last_name,city,state,country,message,date,is_featured,sourc
 ,,Karthik,Nataraj,San Mateo,CA,United States,One donor can save many lives!,2/17/2026,FALSE,form,approved
 ,,Prathyusha,Charagondla,San Mateo,CA,United States,,2/17/2026,FALSE,form,approved
 ,,Thankam,Subramonian,Bangalore,Karnataka,India,"Organ Donation is close to my heart. After the living donation, I pledge to donate whatever organs and tissues that can be used to save lives",2/18/2026,TRUE,form,approved
+,,Krishna,Gubili,Easton,Pennsylvania,United States,,2/19/2026,FALSE,form,approved
+,,Anjali,Mullatti,Mysore,Karnataka,India,"After my death, what use are my organs to me? If they can save other lives, it is such an obvious thing to do. Should be a default option.",2/19/2026,TRUE,form,approved
+,,Nomita,Sikand,Bangalore,Karnataka,India,I strongly believe organ donation can positively and hugely and significantly impact many lives; especially those that can ill afford poor health .,2/19/2026,FALSE,form,approved
