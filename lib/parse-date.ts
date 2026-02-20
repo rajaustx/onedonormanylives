@@ -1,6 +1,7 @@
 /**
  * Parse date string to timestamp. Handles:
  * - ISO (YYYY-MM-DD)
+ * - DD-MM-YYYY (common in Google Sheets exports)
  * - US format (M/D/YYYY, MM/DD/YYYY)
  * - EU format (D/M/YYYY when first number > 12)
  * Returns 0 for invalid/empty dates.
@@ -18,6 +19,28 @@ export function parseDateToTimestamp(dateStr: string): number {
       parseInt(isoMatch[2], 10) - 1,
       parseInt(isoMatch[3], 10)
     );
+    return isNaN(d.getTime()) ? 0 : d.getTime();
+  }
+
+  // DD-MM-YYYY or MM-DD-YYYY (Google Sheets may export with dashes)
+  const dashMatch = s.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/);
+  if (dashMatch) {
+    const n1 = parseInt(dashMatch[1], 10);
+    const n2 = parseInt(dashMatch[2], 10);
+    const year = parseInt(dashMatch[3], 10);
+    let month: number;
+    let day: number;
+    if (n1 > 12) {
+      day = n1;
+      month = n2 - 1;
+    } else if (n2 > 12) {
+      month = n1 - 1;
+      day = n2;
+    } else {
+      month = n1 - 1;
+      day = n2;
+    }
+    const d = new Date(year, month, day);
     return isNaN(d.getTime()) ? 0 : d.getTime();
   }
 

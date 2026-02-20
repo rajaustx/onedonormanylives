@@ -35,7 +35,7 @@ export function AppreciationWall({ data }: AppreciationWallProps) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [sortBy, setSortBy] = useState<SortOption>("original");
+  const [sortBy, setSortBy] = useState<SortOption>("newest");
 
   const debouncedSearch = useDebounce(searchInput, 250);
 
@@ -65,8 +65,8 @@ export function AppreciationWall({ data }: AppreciationWallProps) {
             const diff = timeB - timeA;
             return diff !== 0 ? diff : b.index - a.index;
           }
-          if (!hasDateA && hasDateB) return -1;
-          if (hasDateA && !hasDateB) return 1;
+          if (!hasDateA && hasDateB) return 1;
+          if (hasDateA && !hasDateB) return -1;
           return b.index - a.index;
         });
         break;

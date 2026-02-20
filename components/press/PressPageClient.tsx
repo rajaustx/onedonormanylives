@@ -35,7 +35,7 @@ export function PressPageClient({ entries }: PressPageClientProps) {
                 aria-label="Jump to article"
               >
                 <span className="font-serif text-sm font-medium uppercase tracking-wide text-stone-500 dark:text-stone-400">
-                  In this page
+                  In this page ({entries.length})
                 </span>
                 <div className="mt-4 grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2 rounded-xl border border-amber-200/60 bg-amber-50/50 px-4 py-3 dark:border-amber-800/40 dark:bg-amber-950/20">
