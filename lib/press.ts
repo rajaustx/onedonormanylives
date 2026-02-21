@@ -21,6 +21,23 @@ export function truncateToWords(text: string, maxWords: number): string {
 
 export const pressEntries: PressEntry[] = [
   {
+    id: "manorama-news-2026",
+    publication: "ManoramaNews.com",
+    language: "other",
+    headline:
+      "Legal battle to donate a kidney to a person not related by blood; Dr. Thankam becomes a model/example",
+    date: "2026-02-20",
+    image: "/press/manorama-news-organ-donation.png",
+    excerpt:
+      "Dr. Thankam Subramonian, a native of Thiruvananthapuram, has become a noble example of humanitarianism after waging and winning a legal battle to donate an organ to someone not related by blood.",
+    fullText: `Dr. Thankam Subramonian, a native of Thiruvananthapuram, has become a noble example of humanitarianism after waging and winning a legal battle to donate an organ to someone not related by blood.
+
+Dr. Thankam, who works at a private hospital in Bengaluru, approached the High Court to challenge Karnataka's strict organ donation regulations and obtained a favorable verdict.
+
+"One donor can save eight to ten lives," the doctor reminds.`,
+    url: "https://www.youtube.com/watch?v=LiMgOsoj7oY",
+  },
+  {
     id: "udayavani-2026",
     publication: "Udayavani",
     language: "other",
